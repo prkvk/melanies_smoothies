@@ -1,6 +1,5 @@
 # Import python packages
 import streamlit as st
-import snowflake.connector
 from snowflake.snowpark.functions import col
 
 # Write directly to the app
@@ -13,11 +12,8 @@ st.write(
    "Choose the fruits you want in your custom Smoothie!"
 )
 
-#cnxs = st.connection("snowflake")
-#session1 = cnxs.session()
-
-my_cnx = snowflake.connector.connect("snowflake")
-session1 = my_cnx.session()
+cnxs = st.connection("snowflake")
+session1 = cnxs.session()
 
 my_dataframe = session1.table("smoothies.public.fruit_options").select(col('fruit_name'))
 # st.dataframe(data=my_dataframe, use_container_width=True)

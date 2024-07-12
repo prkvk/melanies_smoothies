@@ -16,7 +16,7 @@ st.write(
 #cnxs = st.connection("snowflake")
 #session1 = cnxs.session()
 
-my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
 session1 = my_cnx.session()
 
 my_dataframe = session1.table("smoothies.public.fruit_options").select(col('fruit_name'))

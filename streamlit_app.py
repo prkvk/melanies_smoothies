@@ -12,9 +12,9 @@ st.write(
    "Choose the fruits you want in your custom Smoothie!"
 )
 
-cnx = st.connection("snowflake")
-session = cnx.session()
-my_dataframe = session.table("smoothies.public.fruit_options").select(col('fruit_name'))
+cnxs = st.connection("snowflake")
+session1 = cnxs.session()
+my_dataframe = session1.table("smoothies.public.fruit_options").select(col('fruit_name'))
 # st.dataframe(data=my_dataframe, use_container_width=True)
 ingredients_list = st.multiselect('Choose upto 5 ingredients:', my_dataframe, max_selections=5)
 
@@ -39,7 +39,7 @@ if ingredients_list:
     st.write(my_insert_stmt)
     if time_to_insert:
 
-        session.sql(my_insert_stmt).collect()
+        session1.sql(my_insert_stmt).collect()
         st.success('Your Smoothie is ordered ' + name_on_order + '!' , icon="✅")
 
 #option = st.selectbox('What is your favourite fruit?', options=['Banana','Strawberries', 'Peaches'])

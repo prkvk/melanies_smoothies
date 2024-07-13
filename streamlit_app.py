@@ -27,6 +27,7 @@ time_to_insert = st.button('Submit Order')
 
 if ingredients_list:
     ingredients_string = ''
+    search_on = ''
     st.write(ingredients_list)
     st.text(ingredients_list)
    
@@ -34,13 +35,13 @@ if ingredients_list:
        ingredients_string += fruit_chosen + ' '
        search_on=panda_dataframe.loc[panda_dataframe['FRUIT_NAME'] == fruit_chosen, 'SEARCH_ON'].iloc[0]
        st.write('The search value for ', fruit_chosen,' is ', search_on, '.')
-
-       st.subheader(fruit_chosen + ' Nutrition Information')
-       # fruits_response = requests.get("https://fruityvice.com/api/fruit/all")
-       get_resp = "https://fruityvice.com/api/fruit/"+search_on
-       st.write(get_resp)
-       # fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+search_on)
-       #fruit_dataframe=st.dataframe(data=fruityvice_response.json(), use_container_width=True);
+       if search_on
+          st.subheader(fruit_chosen + ' Nutrition Information')
+          # fruits_response = requests.get("https://fruityvice.com/api/fruit/all")
+          get_resp = "https://fruityvice.com/api/fruit/"+search_on
+          st.write(get_resp)
+          # fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+search_on)
+          #fruit_dataframe=st.dataframe(data=fruityvice_response.json(), use_container_width=True);
 
     my_insert_stmt = """ insert into smoothies.public.orders(ingredients,name_on_order)
             values ('""" + ingredients_string + "','" + name_on_order + """')"""

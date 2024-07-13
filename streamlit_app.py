@@ -28,8 +28,6 @@ time_to_insert = st.button('Submit Order')
 if ingredients_list:
     ingredients_string = ''
     search_on = ''
-    st.write(ingredients_list)
-    st.text(ingredients_list)
    
     for fruit_chosen in ingredients_list:
        ingredients_string += fruit_chosen + ' '

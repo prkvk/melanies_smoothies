@@ -40,7 +40,7 @@ if ingredients_list:
        get_resp = "https://fruityvice.com/api/fruit/"+search_on
        st.write(get_resp)
        # fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+search_on)
-        fruit_dataframe=st.dataframe(data=fruityvice_response.json(), use_container_width=True);
+       #fruit_dataframe=st.dataframe(data=fruityvice_response.json(), use_container_width=True);
 
     my_insert_stmt = """ insert into smoothies.public.orders(ingredients,name_on_order)
             values ('""" + ingredients_string + "','" + name_on_order + """')"""

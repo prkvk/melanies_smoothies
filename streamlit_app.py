@@ -41,7 +41,7 @@ if ingredients_list:
           request_string = "https://fruityvice.com/api/fruit/"+search_on
           st.write(request_string)
           fruityvice_response = requests.get(request_string)
-          data_nutrition = fruityvice_response.json()
+          data_nutrition = fruityvice_response
           st.write(data_nutrition)
           fruit_dataframe=st.dataframe(data=fruityvice_response.json(), use_container_width=True);
 

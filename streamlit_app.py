@@ -42,7 +42,7 @@ if ingredients_list:
           st.write(request_string)
           fruityvice_response = requests.get(request_string)
           fruityvice_response_json = fruityvice_response.json()
-          data_nutrition = fruityvice_response_json["nutritions"])
+          data_nutrition = fruityvice_response_json["nutritions"]
           fruit_dataframe=st.dataframe(data=data_nutrition, use_container_width=True);
 
     my_insert_stmt = """ insert into smoothies.public.orders(ingredients,name_on_order)

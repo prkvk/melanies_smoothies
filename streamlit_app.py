@@ -35,7 +35,7 @@ if ingredients_list:
        ingredients_string += fruit_chosen + ' '
        search_on=panda_dataframe.loc[panda_dataframe['FRUIT_NAME'] == fruit_chosen, 'SEARCH_ON'].iloc[0]
        st.write('The search value for ', fruit_chosen,' is ', search_on, '.')
-       if search_on
+       if search_on:
           st.subheader(fruit_chosen + ' Nutrition Information')
           # fruits_response = requests.get("https://fruityvice.com/api/fruit/all")
           get_resp = "https://fruityvice.com/api/fruit/"+search_on
